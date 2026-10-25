@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f2f3ed">
+  <meta name="description" content="Jomari Gan is a trainer, coach, and QA specialist focused on customer success and team performance.">
+  <title>Jomari Gan | Trainer, Coach &amp; QA Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172a2a;
+      --muted: #536563;
+      --paper: #f2f3ed;
+      --white: #fffefa;
+      --teal: #087e78;
+      --teal-dark: #075c59;
+      --lime: #d3ed74;
+      --line: #d9ded5;
+      --content: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      z-index: 2;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgb(242 243 237 / 94%);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(var(--content), calc(100% - 48px));
+      min-height: 68px;
+      margin: 0 auto;
+    }
+
+    .wordmark {
+      color: var(--ink);
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 30px; }
+
+    .nav-links a {
+      padding: 8px 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--teal); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background-color: var(--teal-dark);
+      background-image: radial-gradient(rgb(255 255 255 / 10%) 1px, transparent 1px);
+      background-position: 10px 10px;
+      background-size: 22px 22px;
+      color: var(--white);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      align-items: end;
+      gap: 48px;
+      width: min(var(--content), calc(100% - 48px));
+      min-height: 430px;
+      margin: 0 auto;
+      padding: 78px 0 66px;
+      animation: arrive 650ms ease both;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--lime);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 20px;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 0.98;
+    }
+
+    .hero-copy {
+      max-width: 550px;
+      margin: 0;
+      color: #e2eeeb;
+      font-size: 18px;
+    }
+
+    .hero-stamp {
+      display: grid;
+      width: 194px;
+      aspect-ratio: 1;
+      place-items: center;
+      justify-self: end;
+      border: 1px solid rgb(255 255 255 / 35%);
+      border-radius: 50%;
+      color: var(--lime);
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+      transform: rotate(8deg);
+    }
+
+    main {
+      width: min(var(--content), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 56px;
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 84px;
+    }
+
+    .section-label {
+      margin: 8px 0 0;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 28px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 32px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skill-list li {
+      position: relative;
+      padding: 15px 0 15px 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .skill-list li::before {
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      content: '+';
+      font-weight: 700;
+    }
+
+    .role-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .role-heading h2 { margin: 0; font-size: 24px; }
+
+    .role-date { color: var(--teal); font-size: 14px; font-weight: 700; }
+
+    .company { margin: 7px 0 24px; color: var(--muted); }
+
+    .experience-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    .experience-list li { padding-left: 5px; }
+
+    .contact-section { border-bottom: 0; }
+
+    .contact-copy { max-width: 500px; color: var(--muted); }
+
+    .linkedin-btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+      padding: 0 20px;
+      border: 1px solid var(--teal);
+      border-radius: 3px;
+      background: var(--teal);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .linkedin-btn:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+
+    .linkedin-mark {
+      display: grid;
+      width: 21px;
+      height: 21px;
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / 75%);
+      border-radius: 2px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    footer {
+      padding: 22px 24px;
+      background: var(--ink);
+      color: #d5dfda;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer p { margin: 0; }
+
+    :focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner, .hero-inner, main { width: min(100% - 36px, var(--content)); }
+      .nav-inner { min-height: 60px; }
+      .nav-links { gap: 18px; }
+      .nav-links a { font-size: 13px; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        min-height: 0;
+        padding: 65px 0 48px;
+      }
+      h1 { font-size: clamp(48px, 13vw, 72px); }
+      .hero-copy { font-size: 16px; }
+      .hero-stamp {
+        width: 112px;
+        font-size: 11px;
+        justify-self: start;
+      }
+      .section { grid-template-columns: 1fr; gap: 18px; padding: 52px 0; }
+      .section-label { margin-top: 0; }
+      h2 { margin-bottom: 22px; font-size: 28px; }
+      .skill-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 380px) {
+      .nav-inner, .hero-inner, main { width: calc(100% - 28px); }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 12px; }
+      .wordmark { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">People development · Quality · Performance</p>
+        <h1>Jomari Gan</h1>
+        <p class="hero-copy">Trainer, coach, and QA specialist helping customer-facing teams do their best work.</p>
+      </div>
+      <div class="hero-stamp" aria-label="Trainer, coach, QA specialist">TRAINER<br>COACH<br>QA SPECIALIST</div>
+    </div>
+  </header>
+
+  <div class="topbar">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="wordmark" href="#top">JOMARI GAN</a>
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <p class="section-label">What I do</p>
+      <div>
+        <h2 id="skills-title">Core skills</h2>
+        <ul class="skill-list">
+          <li>Coaching Customer Success Managers &amp; Account Managers</li>
+          <li>Quality Assurance &amp; Structured Feedback Delivery</li>
+          <li>BPO Training &amp; Client-Facing Facilitation</li>
+          <li>CRM &amp; Performance Coaching Tools</li>
+          <li>Communication, Facilitation &amp; Leadership</li>
+          <li>Hybrid Work Setup &amp; US Time Zone Alignment</li>
+          <li>Original Training Material Development</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <p class="section-label">Career history</p>
+      <div>
+        <div class="role-heading">
+          <h2 id="experience-title">Team Leader &amp; Quality Expert</h2>
+          <span class="role-date">2023–Present</span>
+        </div>
+        <p class="company">EXL Service</p>
+        <ul class="experience-list">
+          <li>Designed and facilitated training programs for new hires and tenured staff.</li>
+          <li>Coached managers and frontline teams to improve performance metrics.</li>
+          <li>Delivered structured QA feedback, improving team scores by 15%.</li>
+          <li>Presented training materials to clients during onboarding and reviews.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <p class="section-label">Get in touch</p>
+      <div>
+        <h2 id="contact-title">Let’s connect.</h2>
+        <p class="contact-copy">For professional conversations and opportunities, find me on LinkedIn.</p>
+        <a class="linkedin-btn" href="https://www.linkedin.com/in/jomarigan/" target="_blank" rel="noopener noreferrer">
+          <span class="linkedin-mark" aria-hidden="true">in</span>
+          View LinkedIn Profile
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jomari Gan</p>
+  </footer>
+</body>
+</html>“Create index.html
